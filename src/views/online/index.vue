@@ -99,7 +99,7 @@
                                 <TreeSelect :treeData="menuOptions" :defaultValue="form.menu_pid" :defaultProps="normalizer" @getValue="getTreeValue" placeholder="选择上级菜单" />
                             </el-form-item>
                         </el-col>
-                        <el-col :lg="8" :md="12" :sm="24" :xs="24">
+                        <el-col :lg="8" :md="12" :sm="24" :xs="24" v-if="false">
                             <el-form-item label="所属应用" prop="back_module">
                                 <el-input v-model="form.back_module" placeholder="请输入所属应用" clearable size="small" />
                             </el-form-item>
