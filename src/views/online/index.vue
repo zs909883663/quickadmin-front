@@ -215,12 +215,12 @@ export default {
             // 添加弹窗参数
             addPreview: {
                 open: false,
-                title: '新增在线表单',
+                title: '在线开发',
             },
             // online详情弹窗参数
             onlinePreview: {
                 open: false,
-                title: '在线表单详情',
+                title: '在线开发详情',
                 onlineForm: {},
             },
 

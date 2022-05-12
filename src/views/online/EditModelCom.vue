@@ -59,7 +59,7 @@
                 </el-table-column>
                 <!-- 附表不需要编辑的字段 -->
                 <template v-if="!is_subModel.result">
-                    <el-table-column label="添加显示" width="100" align="center">
+                    <el-table-column label="添加显示" width="100" align="center" v-if="false">
                         <template slot-scope="scope">
                             <el-form-item :prop="'editDetail.' + scope.$index + '.add_show'">
                                 <el-checkbox v-model="scope.row.add_show" @change="editFormChange"></el-checkbox>
