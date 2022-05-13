@@ -46,7 +46,10 @@
                 </span>
                 <ImageUpload v-model="form.site_back_image" />
             </el-form-item>
-            <el-form-item prop="site_switch">
+            <!-- 配置项组件为 开关，单选，多选的，请参考以下内容 -->
+            <!-- 配置项组件为 开关，单选，多选的，请参考以下内容 -->
+            <!-- 配置项组件为 开关，单选，多选的，请参考以下内容 -->
+            <!-- <el-form-item prop="site_switch">
                 <span slot="label">
                     <el-tooltip :content="detail['site_switch']['remark']" placement="top">
                         <i class="el-icon-question"></i>
@@ -86,7 +89,7 @@
                     <el-radio label="1">是</el-radio>
                     <el-radio label="0">否</el-radio>
                 </el-radio-group>
-            </el-form-item>
+            </el-form-item> -->
             <el-form-item>
                 <el-button type="primary" size="mini" @click="submit" v-hasPermi="$api.config.index">保存</el-button>
                 <el-button type="danger" size="mini" @click="close">关闭</el-button>
