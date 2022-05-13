@@ -13,15 +13,17 @@ QuickAdmin 是一款基于代码生成器的低代码开发平台，通用型后
 
 ## 相关文档
 
--   开发文档：[http://doc.quickadmin.icu](https://doc.quickadmin.icu)
+-   开发文档：[http://doc.quickadmin.icu](http://doc.quickadmin.icu)
 -   QuickAdmin 官网：[https://www.quickadmin.icu](https://www.quickadmin.icu)
--   在线演示：[http://demo.quickadmin.icu](https://demo.quickadmin.icu)
+-   在线演示：[http://demo.quickadmin.icu](http://demo.quickadmin.icu)
 
 ## 源码下载
 
 > -   最新 release 版： [码云](https://gitee.com/zszone/quickadmin-front.git)
 
-## 使用
+## 安装使用
+
+### 前端
 
 ```bash
 # 进入项目目录
@@ -36,7 +38,7 @@ npm run dev
 
 > 浏览器访问 http://localhost:80
 
-## 发布
+#### 发布
 
 ```bash
 # 构建测试环境
@@ -46,17 +48,26 @@ npm run build:stage
 npm run build:prod
 ```
 
+### 后台
+
+-   1.将下载下来的后端包放到站点目录
+-   2.安装依赖 composer install
+-   3.导入 db 文件下的 init.sql 数据库
+-   4.复制.example.env 命名为.env 修改数据库连接信息 和前端项目名称
+-   5.添加站点并绑定 public 目录为运行目录
+-   6.访问项目 admin 模块，如：http://demo-api.quickadmin.icu/admin 如果出现 quickadmin api is ok,表示后台安装成功
+
 ## 内置功能模块
 
-> -   角色组管理
-> -   管理员管理
-> -   菜单管理
-> -   系统配置
-> -   日志管理
-> -   附件管理
-> -   表单案例
-> -   Online 代码生成
-> -   插件市场
+-   角色组管理
+-   管理员管理
+-   菜单管理
+-   系统配置
+-   日志管理
+-   附件管理
+-   表单案例
+-   Online 代码生成
+-   插件市场
 
 ## 项目目录
 
@@ -107,7 +118,7 @@ npm run build:prod
 
 ## 在线体验
 
-> -   http://demo.quickadmin.icu
+> -   [http://demo.quickadmin.icu](http://demo.quickadmin.icu)
 > -   user: admin
 > -   pwd:123456
 
