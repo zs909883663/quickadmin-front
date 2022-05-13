@@ -1,10 +1,9 @@
 <p align="center">
-	<img alt="logo" width="80" src="https://www.quickadmin.icuapi.njyyc.cn/storage/system/20211125/d26de224f0e4e4e2851345c7f16bc0e7.png">
+	<img alt="logo" width="80" src="https://static.yxhui.top/logo.png">
 </p>
 <h1 align="center" style="margin: 10px 0; font-weight: bold;">QuickAdmin 低代码平台</h1>
 
-<h4 align="center">当前最新版本： 1.0.0-beta（发布时间：20220510）
-</h4>
+当前为前端项目，后端项目请移步[https://gitee.com/zszone/quickadmin-back](https://gitee.com/zszone/quickadmin-back)
 
 ## 简介
 
@@ -14,14 +13,13 @@ QuickAdmin 是一款基于代码生成器的低代码开发平台，通用型后
 
 ## 相关文档
 
--   开发文档：[https://doc.quickadmin.icu](https://doc.quickadmin.icu)
+-   开发文档：[http://doc.quickadmin.icu](https://doc.quickadmin.icu)
 -   QuickAdmin 官网：[https://www.quickadmin.icu](https://www.quickadmin.icu)
--   在线演示：[https://demo.quickadmin.icu](https://demo.quickadmin.icu)
+-   在线演示：[http://demo.quickadmin.icu](https://demo.quickadmin.icu)
 
 ## 源码下载
 
-> -   最新 release 版： [https://www.quickadmin.icu](https://www.quickadmin.icu)
-> -   最新 beta 版：[https://www.quickadmin.icu](https://www.quickadmin.icu)
+> -   最新 release 版： [码云](https://gitee.com/zszone/quickadmin-front.git)
 
 ## 使用
 
@@ -109,7 +107,7 @@ npm run build:prod
 
 ## 在线体验
 
-> -   https://demo.quickadmin.icu
+> -   http://demo.quickadmin.icu
 > -   user: admin
 > -   pwd:123456
 
