@@ -1,6 +1,6 @@
 <template>
     <div class="app-container">
-        <el-form :model="queryParams" ref="queryForm" :inline="true" v-show="showSearch">
+        <!-- <el-form :model="queryParams" ref="queryForm" :inline="true" v-show="showSearch">
             <el-form-item label="菜单名称" prop="title">
                 <el-input v-model="queryParams.title" placeholder="请输入菜单名称" clearable size="small" @keyup.enter.native="handleQuery" />
             </el-form-item>
@@ -13,7 +13,7 @@
                 <el-button type="primary" icon="el-icon-search" size="mini" disabled @click="handleQuery">搜索</el-button>
                 <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
             </el-form-item>
-        </el-form>
+        </el-form> -->
 
         <el-row :gutter="10" class="mb8">
             <el-col :span="1.5">

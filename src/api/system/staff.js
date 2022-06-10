@@ -2,11 +2,11 @@ import request from '@/utils/request'
 import Vue from 'vue'
 
 // 查询管理员列表
-export function listStaff (data) {
+export function listStaff (params) {
     return request({
         url: Vue.prototype.$api.admin.index,
-        method: 'post',
-        data
+        method: 'get',
+        params
     })
 }
 

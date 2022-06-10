@@ -15,7 +15,7 @@
                             <el-option v-for="dict in statusOptions" :key="dict.value" :label="dict.label" :value="dict.value" />
                         </el-select>
                     </el-form-item>
-                    <el-form-item label="创建时间">
+                    <!-- <el-form-item label="创建时间">
                         <el-date-picker
                             v-model="dateRange"
                             size="small"
@@ -26,7 +26,7 @@
                             start-placeholder="开始日期"
                             end-placeholder="结束日期"
                         ></el-date-picker>
-                    </el-form-item>
+                    </el-form-item> -->
                     <el-form-item>
                         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
                         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>

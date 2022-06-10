@@ -2,30 +2,18 @@
     <div class="app-container">
         <el-form :model="queryParams" ref="queryForm" v-show="showSearch" :inline="true">
             <el-form-item label="角色组名称" prop="name">
-                <el-input v-model="queryParams.name" placeholder="请输入角色组名称" clearable size="small" style="width: 240px" @keyup.enter.native="handleQuery" />
+                <el-input v-model="queryParams.name.value" placeholder="请输入角色组名称" clearable size="small" style="width: 240px" @keyup.enter.native="handleQuery" />
             </el-form-item>
             <el-form-item label="角色组ID" prop="id">
-                <el-input v-model="queryParams.id" placeholder="请输入所在角色组" clearable size="small" style="width: 240px" @keyup.enter.native="handleQuery" />
+                <el-input v-model="queryParams.id.value" placeholder="请输入所在角色组" clearable size="small" style="width: 240px" @keyup.enter.native="handleQuery" />
             </el-form-item>
             <el-form-item label="状态" prop="status">
-                <el-select v-model="queryParams.status" placeholder="角色状态" clearable size="small" style="width: 240px">
+                <el-select v-model="queryParams.status.value" placeholder="角色状态" clearable size="small" style="width: 240px">
                     <el-option v-for="(dict, index) in statusRoleOptions" :key="index" :label="dict.label" :value="dict.value" />
                 </el-select>
             </el-form-item>
-            <el-form-item label="创建时间">
-                <el-date-picker
-                    v-model="dateRange"
-                    size="small"
-                    style="width: 240px"
-                    value-format="yyyy-MM-dd"
-                    type="daterange"
-                    range-separator="-"
-                    start-placeholder="开始日期"
-                    end-placeholder="结束日期"
-                ></el-date-picker>
-            </el-form-item>
             <el-form-item>
-                <el-button type="primary" icon="el-icon-search" size="mini" disabled @click="handleQuery">搜索</el-button>
+                <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
                 <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
             </el-form-item>
         </el-form>
@@ -67,7 +55,7 @@
             </el-table-column>
         </el-table>
 
-        <pagination v-show="total > 0" :total="total" :page.sync="queryParams.pageNum" :limit.sync="queryParams.pageSize" @pagination="getList" />
+        <pagination v-show="total > 0" :total="total" :page.sync="pageInfo.pageNum" :limit.sync="pageInfo.pageSize" @pagination="getList" />
 
         <!-- 分配角色菜单权限对话框 -->
         <el-dialog :title="title" :visible.sync="openDataScope" width="500px" append-to-body>
@@ -151,21 +139,21 @@ export default {
             openDataScope: false,
             menuExpand: true,
             menuNodeAll: false,
-            // 日期范围
-            dateRange: [],
             // 状态数据字典
             statusRoleOptions: this.$init.statusRoleOptions,
             // 菜单列表
             menuOptions: [],
             // 原始所有菜单,全选操作会用
             originMenuOptions: [],
-            // 查询参数
-            queryParams: {
+            pageInfo: {
                 pageNum: 1,
                 pageSize: 10,
-                name: undefined,
-                id: undefined,
-                status: undefined,
+            },
+            // 查询参数
+            queryParams: {
+                name: { value: undefined, op: 'like' },
+                id: { value: undefined, op: '=' },
+                status: { value: undefined, op: '=' },
             },
             // 表单参数
             form: {},
@@ -187,7 +175,11 @@ export default {
         // 查询角色列表
         getList() {
             this.loading = true
-            listRoleGroup()
+            const qyparams = {
+                ...this.pageInfo,
+                ...this.formatQueryParams(this.queryParams),
+            }
+            listRoleGroup(qyparams)
                 .then(response => {
                     this.roleList = response.data
                 })
@@ -280,14 +272,18 @@ export default {
 
         // 搜索按钮操作
         handleQuery() {
-            this.queryParams.pageNum = 1
+            this.pageInfo.pageNum = 1
             this.getList()
         },
 
         // 重置按钮操作
         resetQuery() {
-            this.dateRange = []
-            this.resetForm('queryForm')
+            // this.resetForm('queryForm')
+            this.queryParams = {
+                name: { value: undefined, op: 'like' },
+                id: { value: undefined, op: '=' },
+                status: { value: undefined, op: '=' },
+            }
             this.handleQuery()
         },
 
@@ -396,7 +392,7 @@ export default {
                 cancelButtonText: '取消',
                 type: 'warning',
             })
-                .then(function() {
+                .then(function () {
                     return delRoleGroup({ id: ids })
                 })
                 .then(() => {
