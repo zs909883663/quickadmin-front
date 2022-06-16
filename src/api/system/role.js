@@ -2,11 +2,11 @@ import request from '@/utils/request'
 import Vue from 'vue'
 
 // 查询角色组列表
-export function listRoleGroup (data) {
+export function listRoleGroup (params) {
     return request({
         url: Vue.prototype.$api.role.index,
-        method: 'post',
-        data
+        method: 'get',
+        params
     })
 }
 

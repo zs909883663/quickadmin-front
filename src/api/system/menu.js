@@ -8,11 +8,11 @@ import Vue from 'vue'
  * @param {*} data menu_type
  * @returns
  */
-export function listMenu (data) {
+export function listMenu (params) {
     return request({
         url: Vue.prototype.$api.menu.index,
-        method: 'post',
-        data
+        method: 'get',
+        params
     })
 }
 
